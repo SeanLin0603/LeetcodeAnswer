@@ -6,27 +6,27 @@
 
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) 
 {
-	*returnSize = 2;
-	static int result[2] = { 0 };
-	//int* result = (int*)malloc(2 * sizeof(int));
-
 	for (int i = 0; i < numsSize; i++)
 	{
 		int a = nums[i];
-
 		for (int j = i + 1; j < numsSize; j++)
 		{
 			int b = nums[j];
-
 			if (a + b == target)
 			{
-				result[0] = i;
+				*returnSize = 2;
+	            //static int result[2] = { 0 };
+	            int* result = (int*)malloc(2 * sizeof(int));
+                
+                result[0] = i;
 				result[1] = j;
 				return result;
 			}
 		}
 	}
-	return (NULL);
+
+    *returnSize = 0;
+    return (NULL);
 }
 
 
