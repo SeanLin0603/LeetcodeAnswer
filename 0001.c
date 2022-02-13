@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* twoSum(int* nums, int numsSize, int target, int* returnSize)
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) 
 {
-	int result[2] = { 0 };
+	*returnSize = 2;
+	static int result[2] = { 0 };
+	//int* result = (int*)malloc(2 * sizeof(int));
 
 	for (int i = 0; i < numsSize; i++)
 	{
@@ -24,17 +26,22 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize)
 			}
 		}
 	}
-	return result;
+	return (NULL);
 }
+
 
 int main()
 {
-	int a[] = { 2, 7, 11, 15 };
+	/*int a[] = { 2, 7, 11, 15 };
+	int numsSize = 4;
+	int target = 9;
+	int returnSize = 0;*/
 
-	int* result = twoSum(a, 4, 26, nullptr);
+	int a[] = { 3, 2, 4 };
+	int numsSize = 3;
+	int target = 6;
+	int returnSize = 0;
+
+	int* result = twoSum(a, numsSize, target, &returnSize);
 	printf("%d %d\n", *result, *(result + 1));
-
-	printf("%d\n", *result);
-	printf("%d\n", *(result + 1));
-
 }
